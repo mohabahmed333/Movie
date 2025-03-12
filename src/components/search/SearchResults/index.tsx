@@ -1,5 +1,4 @@
 import React, { Dispatch, memo, SetStateAction } from "react";
-import { Star } from "lucide-react";
 import SearchSkeleton from "./searchSkelton";
 import { Movie } from "../../../ts/types/Movie";
 import { IMAGE_URL } from "../../../constants/baseUrl";
@@ -37,7 +36,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   }
 
   return (
-    <div className="absolute top-full left-0 right-0 mt-2  bg-white rounded-lg shadow-xl z-50 max-h-[500px] overflow-y-auto">
+    <div className="absolute top-full left-0 right-0 mt-2  bg-white rounded-lg shadow-xl z-50 max-h-[300px] lg:max-h-[500px] overflow-y-auto">
       {results &&
         results.map((result, idx) => (
           <div key={result.id}>
@@ -52,28 +51,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               <img
                 src={IMAGE_URL + result.poster_path}
                 alt={result.title}
-                className="h-24 w-24 object-cover rounded-lg"
+                className=" size-10 md:size-24 object-cover rounded-lg"
               />
               <div className="ml-4 flex-1">
-                <h3 className="text-lg font-medium text-gray-900">
+                <h3 className="text-sm md:text-lg font-medium text-gray-900">
                   {result.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-2">{result.title}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    {result.popularity && (
-                      <>
-                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span className="ml-1 text-sm text-gray-600">
-                          {result.popularity}
-                        </span>
-                      </>
-                    )}
-                  </div>
-                  <span className="text-sm font-medium text-gray-900">
-                    {result.release_date}
-                  </span>
-                </div>
               </div>
             </Link>
 

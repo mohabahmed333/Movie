@@ -18,7 +18,8 @@ const CategoryItem = ({ movie }: { movie: Movie }) => {
           alt={movie.original_title}
           height={400}
           width={400}
-          className=" transform group-hover:scale-110 transition-transform duration-500 max-w-full max-h-full" />
+          className=" transform group-hover:scale-110 transition-transform duration-500 max-w-full max-h-full"
+        />
 
         <div className="absolute inset-0 bg-black bg-opacity-0 h-full group-hover:bg-opacity-60 transition-opacity duration-300">
           <div
