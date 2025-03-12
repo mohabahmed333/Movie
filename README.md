@@ -2,7 +2,8 @@
 
 ## Description
 
-MovieApp is a React-based movie application built with TypeScript, Vite, and Zustand for state management. It allows users to search for movies, view details, and manage favorites. The app uses an API to fetch movie data dynamically.
+MovieApp is a React-based movie application built with TypeScript, Vite, and Redux for state management.
+It allows users to search for movies, view details, and manage favorites. The app uses an API to fetch movie data dynamically.
 
 ## Features Implemented
 
@@ -46,7 +47,7 @@ Push to your branch and submit a pull request.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/MovieTests.git
+   git clone https://github.com/mohabahmed333/Movie.git
    cd MovieTests
    ```
 
