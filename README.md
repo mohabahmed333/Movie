@@ -34,6 +34,15 @@ MovieTests/
 │── public/ # Public assets
 │── package.json # Dependencies and scripts
 │── vite.config.ts # Vite configuration
+Set up environment variables:
+
+## Create a .env file in the root directory.
+
+Add your TMDB API key:
+env
+VITE_TMDB_API_KEY=your_api_key_here
+
+Replace your_api_key_here with your actual TMDB API key.
 
 📌 Contribution
 Want to contribute? Follow these steps:
