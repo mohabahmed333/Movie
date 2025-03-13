@@ -6,11 +6,10 @@ const HomePage: React.FC = () => {
   return (
     <section>
       <MovieCarousel />
-      <div className="  p-1 container mx-auto mt-3">
-      <MovieCategory title={"up Coming"} category="upcoming" /> 
-      <MovieCategory title={"popular"} category="popular" />
+      <div className="p-1 container mx-auto mt-3">
+        <MovieCategory title={"up Coming"} category="upcoming" />
+        <MovieCategory title={"popular"} category="popular" />
       </div>
-     
     </section>
   );
 };

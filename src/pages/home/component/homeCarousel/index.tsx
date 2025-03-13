@@ -10,13 +10,14 @@ const MovieCarousel = () => {
   const { data, isError, isLoading } = useGetMoviesHook("popular");
 
   return (
-    <div className=" p-1">
+    <div className=" p-1 min-h-[400px]">
       <Slider {...settings}>
         {isLoading &&
-          Array.from({ length: 10 }).map((_, index) => (
+          Array.from({ length: 6 }).map((_, index) => (
             <CarouselItemSkelton key={index} />
           ))}
-        {data && data.slice(0,10).map((movie) => <CarouselItem movie={movie} />)}
+        {data &&
+          data.slice(0, 10).map((movie) => <CarouselItem movie={movie} />)}
         {isError && <p>Error</p>}
       </Slider>
     </div>

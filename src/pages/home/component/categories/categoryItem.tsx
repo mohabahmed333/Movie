@@ -1,8 +1,8 @@
 import { Movie } from "../../../../ts/types/Movie";
-import { IMAGE_URL } from "../../../../constants/baseUrl";
 import { Link } from "react-router-dom";
 import Vote from "../../../../components/shared/Vote";
 import Favorite from "../../../../components/shared/Favorite";
+import PictureImage from "../../../../components/utls/pictureFormatingImages";
 
 const CategoryItem = ({ movie }: { movie: Movie }) => {
   return (
@@ -12,12 +12,11 @@ const CategoryItem = ({ movie }: { movie: Movie }) => {
        hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer flex flex-col"
     >
       <Link to={`/movie/${movie.id}`} className="relative h-[80%]">
-        <img
-          src={IMAGE_URL + movie.poster_path}
-          loading="lazy"
+        <PictureImage
+          src={movie.poster_path}
           alt={movie.original_title}
-          height={400}
-          width={400}
+          width={500}
+          height={500}
           className=" transform group-hover:scale-110 transition-transform duration-500 max-w-full max-h-full"
         />
 

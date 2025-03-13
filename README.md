@@ -41,7 +41,6 @@ Set up environment variables:
 Add your TMDB API key:
 env
 VITE_TMDB_API_KEY=your_api_key_here
-
 Replace your_api_key_here with your actual TMDB API key.
 
 📌 Contribution
