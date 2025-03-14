@@ -7,10 +7,10 @@ import CarouselItem from "./carouselItem/carouselItem";
 import CarouselItemSkelton from "./carouselItem/carouselitemSkelton";
 
 const MovieCarousel = () => {
-  const { data, isError, isLoading } = useGetMoviesHook("popular");
+  const { data, isError, isLoading } = useGetMoviesHook("popular", true);
 
   return (
-    <div className=" p-1 min-h-[400px]">
+    <div className=" p-1 2xl:min-h-[400px]">
       <Slider {...settings}>
         {isLoading &&
           Array.from({ length: 6 }).map((_, index) => (

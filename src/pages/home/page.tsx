@@ -9,6 +9,7 @@ const HomePage: React.FC = () => {
       <div className="p-1 container mx-auto mt-3">
         <MovieCategory title={"up Coming"} category="upcoming" />
         <MovieCategory title={"popular"} category="popular" />
+        <MovieCategory title={"popular"} category="now_playing" />
       </div>
     </section>
   );

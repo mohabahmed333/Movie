@@ -9,7 +9,7 @@ import NoMovieFound from "../../components/shared/noMovieFound";
 const SearchPage: React.FC = () => {
   const { search: searchKeyword } = useParams<{ search: string }>();
   const [searchTerm, setSearchTerm] = useState<string>(searchKeyword || "");
-
+  console.log(searchKeyword, "searchKeyword");
   const { data, isLoading, fetchNextPage, hasNextPage } =
     UseSearchMovieInfanteHook(searchKeyword ?? "");
 
@@ -60,6 +60,7 @@ const SearchPage: React.FC = () => {
                 }),
               )}
           </div>
+          {searchKeyword === "" && <NoMovieFound />}
 
           {data && data.pages[0]?.length === 0 && !isLoading && (
             <NoMovieFound />

@@ -9,12 +9,14 @@ interface SearchResultsProps {
   isLoading: boolean;
   setSearch: Dispatch<SetStateAction<boolean>>;
   search: string;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   results,
   isLoading,
   setSearch,
+  inputRef,
   search,
 }) => {
   if (isLoading && (!results || results.length === 0)) {
@@ -34,7 +36,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       </div>
     );
   }
-
+  const cleanup = () => {
+    if (inputRef.current) {
+      inputRef.current.value = "";
+      setSearch(false);
+    }
+  };
   return (
     <div className="absolute top-full left-0 right-0 mt-2  bg-white rounded-lg shadow-xl z-50 max-h-[300px] lg:max-h-[500px] overflow-y-auto">
       {results &&
@@ -42,7 +49,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           <div key={result.id}>
             <Link
               to={`/movie/${result.id}`}
-              onClick={() => setSearch(false)}
+              onClick={cleanup}
               className={`
               flex p-4 hover:bg-gray-50 transition-colors 
             cursor-pointer border-b last:border-b-0
@@ -65,7 +72,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                 to={`/search/${search}`}
                 className="w-full text-center text-blue-500 p-2 block cursor-pointer 
               hover:bg-gray-100 transition-colors"
-                onClick={() => setSearch(false)}
+                onClick={cleanup}
               >
                 See More Results
               </Link>
