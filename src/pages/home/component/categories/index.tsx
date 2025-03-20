@@ -7,7 +7,7 @@ import CategoryItem from "./categoryItem";
 import CategoryItemSkelton from "./categoryItemSkelton";
 import { settings } from "./sliderSettings";
 import { memo, useEffect, useRef, useState } from "react";
-
+import "./index.css";
 const MovieCategory = ({
   title,
   category,
@@ -28,7 +28,7 @@ const MovieCategory = ({
           setHasBeenVisible(true);
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
 
     const currentRef = ref.current;
@@ -38,11 +38,14 @@ const MovieCategory = ({
       if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
-  useEffect(() => {
-    console.log("hasBeenVisible", hasBeenVisible);
-  });
+
   return (
-    <section ref={ref} className="min-h-[400px]">
+    <section
+      ref={ref}
+      className={`opacity-0 transition-all duration-700   transform ${
+        hasBeenVisible ? "opacity-100 translate-y-0" : "translate-y-5"
+      }`}
+    >
       <h1 className="text-2xl font-bold my-10 capitalize ">{title}</h1>
       {hasBeenVisible && (
         <Slider {...settings}>
